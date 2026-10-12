@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Which universities abroad will accept you? | ISB Immigration & Solution BD</title>
-<meta name="description" content="Free one-minute admission profile check. See which universities in Canada, Australia, USA, UK, Finland, Lithuania, Poland, Greece, Latvia and Estonia match your CGPA, IELTS and budget.">
+<meta name="description" content="Free one-minute admission profile check. See which universities in Lithuania, Poland, Estonia, Latvia, Greece, Finland, the UK, Australia and Denmark match your CGPA, IELTS and budget.">
 <meta name="theme-color" content="#d62d30">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Which universities abroad will accept you?">
@@ -77,6 +77,42 @@ footer a{color:#fff}
 .meta{font-size:13px;color:var(--mut)}
 .tg{font-size:12px;font-weight:700;border-radius:99px;padding:3px 10px;white-space:nowrap;flex:none}
 .t0{background:rgba(27,158,99,.15);color:var(--ok)}.t1{background:rgba(245,124,0,.16);color:#c25e00}.t2{background:rgba(250,204,21,.28);color:#a67c00}.t3{background:rgba(37,99,235,.14);color:#3b78e7}
+
+/* ---- polish ---- */
+.stepl{font-size:12px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--mut);margin:0 0 8px}
+.card{animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.card{animation:none}.bar i{transition:none}}
+.opt{transition:border-color .15s,background .15s,box-shadow .15s}
+.opt:hover{background:rgba(214,45,48,.05)}
+.opt:focus-visible{box-shadow:0 0 0 3px rgba(214,45,48,.18)}
+.opts.ctry .opt{display:flex;align-items:center;gap:10px;font-weight:600}
+.rk{flex:none;width:24px;height:24px;border-radius:50%;background:rgba(214,45,48,.1);color:var(--acc);font-size:12px;font-weight:800;display:grid;place-items:center}
+.opt.sel .rk{background:var(--acc);color:#fff}
+input:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(214,45,48,.15)}
+.ig{position:relative}.ig input{padding-right:96px}
+.ig span{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--mut);font-weight:600;font-size:14px;pointer-events:none}
+.btn{transition:transform .1s,box-shadow .15s}
+.btn:hover{box-shadow:0 6px 16px rgba(214,45,48,.22)}.btn:active{transform:translateY(1px)}
+.btn.sec:hover{box-shadow:none;border-color:var(--acc)}
+.btn.wa{background:#1fa855;color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;font-size:17px;padding:16px 20px;width:100%}
+.btn.wa:hover{box-shadow:0 6px 16px rgba(31,168,85,.3)}
+.cta{margin-top:22px;padding:18px;border:1.5px solid var(--line);border-radius:14px;background:linear-gradient(180deg,rgba(31,168,85,.07),transparent)}
+.ctat{margin:0 0 2px;font-size:12px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:#1b9e63}
+.ctas{margin:0 0 14px;color:var(--mut);font-size:14px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.row2 .btn{display:block}
+@media (max-width:400px){.row2{grid-template-columns:1fr}}
+.uni>div:nth-child(2){flex:1;min-width:0}
+.selc{font-size:13.5px;font-weight:600;margin:0 0 12px;color:var(--ink)}
+
+.uni.sl{cursor:pointer;transition:border-color .15s,background .15s,box-shadow .15s;-webkit-tap-highlight-color:transparent}
+.uni.sl:hover{border-color:var(--ok)}
+.uni.sl:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(27,158,99,.3)}
+.uni.sl.on{border-color:var(--ok);background:rgba(27,158,99,.10);box-shadow:0 0 0 1px var(--ok) inset}
+.pick{flex:none;align-self:flex-start;width:22px;height:22px;margin-top:2px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;transition:background .15s,border-color .15s}
+.uni.sl.on .pick{background:var(--ok);border-color:var(--ok)}
+.uni.sl.on .pick::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+@media print{.pick{display:none!important}.uni.sl.on{background:none;box-shadow:none;border-color:var(--line)}}
 </style>
 </head>
 <body>
@@ -95,14 +131,16 @@ footer a{color:#fff}
 </footer>
 <script>
 var WA="8801600274283";
+/* display order of countries (indexes into Q[0].o) */
+var ORDER=[5,6,9,8,7,4,3,1,11,10];
 var Q=[
-{k:"country",q:"Which country do you want to study in?",o:["Canada","Australia","USA","UK","Finland","Lithuania","Poland","Greece","Latvia","Estonia","Other / Not sure"]},
+{k:"country",q:"Which country do you want to study in?",o:["Canada","Australia","USA","UK","Finland","Lithuania","Poland","Greece","Latvia","Estonia","Other / Not sure","Denmark"]},
 {k:"level",q:"What level do you want to study?",o:["Diploma / Foundation","Bachelor's","Master's"]},
 {k:"edu",q:"What is your latest completed education?",o:["HSC / A-Level","Bachelor's degree","Master's degree"]},
 {k:"gpa",q:"What was your CGPA / GPA (out of 4.00 or 5.00 scaled)?",o:["Below 2.50","2.50 – 2.99","3.00 – 3.49","3.50 – 4.00","4.01 – 5.00"]},
 {k:"ielts",q:"What is your IELTS (or equivalent) status?",o:["Not taken yet","Below 5.5","5.5","6.0","6.5","7.0 or above"]},
 {k:"gap",q:"Do you have a study gap?",o:["No gap","1 – 2 years","3+ years"]},
-{k:"budget",q:"What is your total yearly budget (tuition + living)?",o:["Under 15 lakh BDT","15 – 30 lakh BDT","30 – 50 lakh BDT","50 lakh BDT or more"]}
+{k:"budget",q:"What is your total yearly budget (tuition + living)?"}
 ];
 /* [name,country,levels(1=diploma,2=bachelor,4=master),min CGPA band,min IELTS band,approx total cost lakh BDT/yr] */
 var U=[
@@ -129,19 +167,18 @@ function lk(n){var l=n.toLowerCase(),i,u=null;for(i=0;i<WEB.length;i++)if(l.inde
   return '<div class="meta">'+(u?'<a class="lnk" target="_blank" rel="noopener" href="'+u+'">University portal \u2197</a>':'<a class="lnk" target="_blank" rel="noopener" href="https://www.google.com/search?q='+encodeURIComponent(n+' official website admissions')+'">Find official website \u2197</a>')+'</div>';}
 var RK=[["vilnius university",446,"446"],["kaunas university of technology",745,"741\u2013750"],["vytautas magnus",745,"741\u2013750"],["mykolas romeris",1100,"1001\u20131200"]];
 function rk(n){var l=n.toLowerCase(),i;for(i=0;i<RK.length;i++)if(l.indexOf(RK[i][0])==0)return[RK[i][1],RK[i][2]];return[9999,""]}
-var BUDHI=[15,30,50,1e9];
 function budLith(L,ks){
   var tu=[],fe=[],bl=function(e){return lakh(e*EUR/1e5)},er=function(e){return "\u20ac"+Math.round(e).toLocaleString("en-US")};
   L.forEach(function(o){if(o.p[6])tu.push(o.p[6]);if(o.p[9])fe.push(o.p[9])});
   tu.sort(function(a,b){return a-b});fe.sort(function(a,b){return a-b});
-  var md=function(a){return a.length?a[Math.floor(a.length/2)]:0},lo=tu[0]||0,hi=tu.length?tu[tu.length-1]:0,mt=md(tu),mf=md(fe),hb=BUDHI[A.budget];
+  var md=function(a){return a.length?a[Math.floor(a.length/2)]:0},lo=tu[0]||0,hi=tu.length?tu[tu.length-1]:0,mt=md(tu),mf=md(fe),hb=A.budget;
   var fits=function(p){return ((p[6]||mt)+LIV)*EUR/1e5<=hb};
   var nf=L.filter(function(o){return fits(o.p)}).length;
   var R=[["Tuition fee (1 year)",er(lo)+" \u2013 "+er(hi)+" (\u2248 "+bl(lo)+" \u2013 "+bl(hi)+" lakh BDT). Typical: "+er(mt)+" (\u2248 "+bl(mt)+" lakh BDT)"],
    ["Living cost (estimate)",er(LIV)+" per year, about "+er(LIV/12)+" per month (\u2248 "+bl(LIV)+" lakh BDT per year)"],
    ["Application fee (one-time)","About "+er(mf)+" per application (\u2248 "+Math.round(mf*EUR).toLocaleString("en-US")+" BDT)"],
    ["Budget needed for 1 year (tuition + living)","Typical \u2248 "+bl(mt+LIV)+" lakh BDT. Range \u2248 "+bl(lo+LIV)+" \u2013 "+bl(hi+LIV)+" lakh BDT"],
-   ["Your budget",esc(Q[6].o[A.budget])+" per year: "+nf+" of "+L.length+" matching programs fit within it"+(L.length-nf?"; "+(L.length-nf)+" are above it":"")]];
+   ["Your budget",esc(BT())+" per year: "+nf+" of "+L.length+" matching programs fit within it"+(L.length-nf?"; "+(L.length-nf)+" are above it":"")]];
   var h='<h3 class="prh">Budget needed</h3><p class="note" style="margin-top:0">How much you need for 1 year in Lithuania, based on your matching programs.</p><div class="sum" style="grid-template-columns:1fr">'+R.map(function(r){return"<div><b>"+r[0]+"</b>"+r[1]+"</div>"}).join("")+"</div>";
   h+='<h3 style="margin:16px 0 6px">By university</h3>';
   ks.forEach(function(s){
@@ -151,7 +188,7 @@ function budLith(L,ks){
   return h+'<p class="note">Tuition and application fees come from the university data. Living cost is an estimate and changes by city and lifestyle. Budget match is for information only and does not hide any program.</p>';
 }
 function budOther(L){
-  var hb=BUDHI[A.budget],h='<h3 style="margin:16px 0 6px">Budget needed</h3><p class="note" style="margin-top:0">Estimated cost for 1 year (tuition + living) compared with your budget ('+esc(Q[6].o[A.budget])+' per year).</p>';
+  var hb=A.budget,h='<h3 style="margin:16px 0 6px">Budget needed</h3><p class="note" style="margin-top:0">Estimated cost for 1 year (tuition + living) compared with your budget ('+esc(BT())+' per year).</p>';
   L.forEach(function(o){var u=o.u,ok=u[5]<=hb;h+='<div class="uni"><div><b>'+esc(u[0])+'</b><div class="meta">Budget needed: about '+u[5]+' lakh BDT for 1 year</div></div><span class="tg '+(ok?'t0':'t1')+'">'+(ok?'Within budget':'Above budget')+'</span></div>'});
   return h;
 }
@@ -170,19 +207,20 @@ function lith(h){
   out=L;
   if(!out.length)return h+'<p>No matching programs in Lithuania for this level and profile yet. Improving IELTS or CGPA can open more options. Our counsellors can suggest the best route.</p>';
   var S={};out.forEach(function(o){var k=o.p[0],s=S[k]||(S[k]={k:k,n:0,b:0,m:0,t:3,lo:1e9,hi:0,tl:1e9,th:0});s.n++;if(o.p[2]==2)s.b++;else s.m++;s.t=Math.min(s.t,o.t);s.lo=Math.min(s.lo,o.c);s.hi=Math.max(s.hi,o.c);if(o.p[6]){s.tl=Math.min(s.tl,o.p[6]);s.th=Math.max(s.th,o.p[6])}});
-  var ks=Object.keys(S).map(function(k){return S[k]}).sort(function(x,y){return rk(UN[x.k][0])[0]-rk(UN[y.k][0])[0]||x.t-y.t||x.lo-y.lo});var rn=0;
+  var ks=Object.keys(S).map(function(k){return S[k]}).sort(function(x,y){return rk(UN[x.k][0])[0]-rk(UN[y.k][0])[0]||x.t-y.t||x.lo-y.lo});var rn=0;TOP=ks.slice(0,3).map(function(s){return UN[s.k][0]});A.mc=ks.length;
   h='<div class="tabs"><button class="tabb on" data-t="0">Universities ('+ks.length+')</button><button class="tabb" data-t="1">Programs ('+out.length+')</button><button class="tabb" data-t="2">Budget needed</button></div>'+legend()+'<div id="p0"><h3 class="prh">Universities ('+ks.length+')</h3>';
-  ks.forEach(function(s){var u=UN[s.k],r=rk(u[0]);h+='<div class="uni"><div><b>'+esc(u[0])+'</b>'+pt(u[2])+'<div class="meta" style="font-weight:600">'+(r[1]?'QS World 2026: '+r[1]:'Not in QS World 2026')+'</div><div class="meta">'+(u[1]?esc(u[1])+' \u00b7 ':'')+s.n+(s.n==1?' matching program (':' matching programs (')+s.b+' Bachelor, '+s.m+' Master)</div><div class="meta">'+(s.th?'1 year tuition: \u20ac'+s.tl+(s.th>s.tl?'\u2013\u20ac'+s.th:'')+' (\u2248 '+lakh(s.tl*EUR/1e5)+(s.th>s.tl?'\u2013'+lakh(s.th*EUR/1e5):'')+' lakh BDT)':'1 year tuition: ask us')+'</div>'+lk(u[0])+'</div><span class="tg t'+s.t+'">'+tg[s.t]+'</span></div>'});
+  ks.forEach(function(s){var u=UN[s.k],r=rk(u[0]);h+='<div class="uni sl"'+pa('u',u[0])+'><span class="pick"></span><div><b>'+esc(u[0])+'</b>'+pt(u[2])+'<div class="meta" style="font-weight:600">'+(r[1]?'QS World 2026: '+r[1]:'Not in QS World 2026')+'</div><div class="meta">'+(u[1]?esc(u[1])+' \u00b7 ':'')+s.n+(s.n==1?' matching program (':' matching programs (')+s.b+' Bachelor, '+s.m+' Master)</div><div class="meta">'+(s.th?'1 year tuition: \u20ac'+s.tl+(s.th>s.tl?'\u2013\u20ac'+s.th:'')+' (\u2248 '+lakh(s.tl*EUR/1e5)+(s.th>s.tl?'\u2013'+lakh(s.th*EUR/1e5):'')+' lakh BDT)':'1 year tuition: ask us')+'</div>'+lk(u[0])+'</div><span class="tg t'+s.t+'">'+tg[s.t]+'</span></div>'});
   h+='</div><div id="p1" class="hide"><h3 class="prh">Programs ('+out.length+')</h3><p class="note" style="margin-top:0">'+(strong?'Programs from the highest-ranked universities come first, then the rest by rank.':'Best fit and lowest cost come first.')+'</p>';
-  out.forEach(function(o){var p=o.p,u=UN[p[0]];h+='<div class="uni"><div><b>'+esc(p[1])+'</b><div class="meta">'+esc(u[0])+pt(u[2])+(u[1]?' \u00b7 '+esc(u[1]):'')+' \u00b7 '+(p[2]==2?'Bachelor':'Master')+(rk(u[0])[1]?' \u00b7 QS '+rk(u[0])[1]:'')+'</div><div class="meta">'+'1 year tuition: '+(p[6]?'\u20ac'+p[6]+' (\u2248 '+lakh(p[6]*EUR/1e5)+' lakh BDT)':'ask us')+' \u00b7 CGPA '+G[p[3]]+' \u00b7 IELTS '+(p[4]==p[5]?IL[p[5]]:IL[p[4]]+'\u2013'+IL[p[5]])+'</div><div class="meta">Deadline: '+esc(DL[p[7]])+'</div>'+lk(u[0])+'</div><span class="tg t'+o.t+'">'+tg[o.t]+'</span></div>'});
+  out.forEach(function(o){var p=o.p,u=UN[p[0]];h+='<div class="uni sl"'+pa('p',p[1]+' - '+u[0])+'><span class="pick"></span><div><b>'+esc(p[1])+'</b><div class="meta">'+esc(u[0])+pt(u[2])+(u[1]?' \u00b7 '+esc(u[1]):'')+' \u00b7 '+(p[2]==2?'Bachelor':'Master')+(rk(u[0])[1]?' \u00b7 QS '+rk(u[0])[1]:'')+'</div><div class="meta">'+'1 year tuition: '+(p[6]?'\u20ac'+p[6]+' (\u2248 '+lakh(p[6]*EUR/1e5)+' lakh BDT)':'ask us')+' \u00b7 CGPA '+G[p[3]]+' \u00b7 IELTS '+(p[4]==p[5]?IL[p[5]]:IL[p[4]]+'\u2013'+IL[p[5]])+'</div><div class="meta">Deadline: '+esc(DL[p[7]])+'</div>'+lk(u[0])+'</div><span class="tg t'+o.t+'">'+tg[o.t]+'</span></div>'});
   h+='</div><div id="p2" class="hide">'+budLith(L,ks)+'</div>';
   if(A.moi)h+='<p class="note">Showing only programs that accept an English Medium Letter (MOI), since you have no test score yet.</p>';else if(ie===null)h+='<p class="note">You have not shared an English test score, so these matches ignore the language score. Check the IELTS minimum on each card.</p>';
-  return h+'<p class="note">BDT amounts are for 1 year, converted at \u20ac1 = \u09f3'+EUR+' (rate: '+RATEDATE+'). Total = tuition + about \u20ac'+LIV+' living (estimate). Bank rates and fees differ slightly. University order follows the QS World University Rankings 2026 (only these Lithuanian universities are ranked there), then fit and cost. Percentage-based CGPA rules are converted to approximate bands. Deadlines and fees change every intake, so confirm with the university before applying.</p>';
+  return h+'<p class="note">BDT amounts are for 1 year, converted at \u20ac1 = \u09f3'+EUR+' (rate: '+RATEDATE+'). Deadlines and fees change every intake, so confirm with the university before applying.</p>';
 }
-function unis(){
+function unis(){TOP=[];A.mc=0;
   var c=A.country,bit=[1,2,4][A.level],ie=A.ielts==0?null:A.ielts,L=[],G=["any","2.50+","3.00+","3.50+"],I=["","","5.5–6.0","6.5","7.0"],tg=["Good fit","","Reach"];
   var h='<h3>Universities to explore</h3>';
   if(c==5)return lith(h);
+  if(c==11)return h+'<p>For Denmark, our counsellors prepare a personal shortlist of universities that match your profile and budget. Use the button below to send your profile to a counsellor.</p>';
   if(c==10)return h+'<p>Tell us your preferred country and our counsellors will build a shortlist for you.</p>';
   U.forEach(function(u){
     if(u[1]!=c||!(u[2]&bit))return;
@@ -190,39 +228,80 @@ function unis(){
     if(gap==0)t=0;else if(gap==1)t=2;else return;
     L.push({u:u,t:t});
   });
-  L.sort(function(x,y){return x.t-y.t||x.u[5]-y.u[5]});
+  L.sort(function(x,y){return x.t-y.t||x.u[5]-y.u[5]});TOP=L.slice(0,3).map(function(o){return o.u[0]});A.mc=L.length;
   h='<h3>Universities ('+L.length+')</h3>'+legend();
   if(!L.length)h+='<p>No direct matches for this profile yet. Improving IELTS or CGPA, or choosing another country, can open more options. Our counsellors can suggest the best route.</p>';
-  L.forEach(function(o){var u=o.u;h+='<div class="uni"><div><b>'+esc(u[0])+'</b>'+pt(PRI.indexOf(u[0])>-1?'private':'public')+'<div class="meta">CGPA '+G[u[3]]+' · IELTS '+I[u[4]]+'</div>'+lk(u[0])+'</div><span class="tg t'+o.t+'">'+tg[o.t]+'</span></div>'});
+  L.forEach(function(o){var u=o.u;h+='<div class="uni sl"'+pa('u',u[0])+'><span class="pick"></span><div><b>'+esc(u[0])+'</b>'+pt(PRI.indexOf(u[0])>-1?'private':'public')+'<div class="meta">CGPA '+G[u[3]]+' · IELTS '+I[u[4]]+'</div>'+lk(u[0])+'</div><span class="tg t'+o.t+'">'+tg[o.t]+'</span></div>'});
   if(L.length)h+=budOther(L);
   if(ie===null&&L.length)h+='<p class="note">You have not shared an English test score, so these matches ignore the language score. Check the IELTS minimum on each card.</p>';
   return h+'<p class="note">Costs are rough yearly estimates (tuition + living) and entry requirements are typical minimums. Both vary by program and intake, so always confirm on the official university website.</p>';
 }
 var LINK={0:"canada/",1:"australia/",2:"usa/",4:"finland/"};
+var TOP=[],SEL={u:{},p:{}};
+function pa(t,n){return ' data-t="'+t+'" data-n="'+esc(n)+'" role="checkbox" tabindex="0" aria-checked="false"'}
+function fmtN(v){return String(Math.round(v*100)/100)}
+function BT(){return fmtN(A.budget)+" lakh BDT"}
+function hdr(){return '<div class="stepl">Step '+(step+1)+' of '+Q.length+'</div><div class="bar"><i style="width:'+Math.round(step/(Q.length+1)*100)+'%"></i></div>'}
 var A={},step=0,card=document.getElementById("card");
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
-var GS=[{n:"GPA (out of 5)",o:[["Below 3.50",0,0],["3.50 \u2013 4.00",1,1],["4.01 \u2013 4.49",2,2],["4.50 \u2013 5.00",3,3]]},{n:"CGPA (out of 4)",o:[["Below 2.50",0,0],["2.50 \u2013 2.70",1,0],["2.71 \u2013 2.99",1,1],["3.00 \u2013 3.49",2,2],["3.50 \u2013 4.00",3,3]]},{n:"Percentage (%)",o:[["Below 60%",0,0],["60% \u2013 69%",1,1],["70% \u2013 79%",2,2],["80% or above",3,3]]}];
-/* option = [label, matching band 0-3, profile category 0=Poor 1=Moderate 2=Good 3=Excellent] */
+var GS=[{n:"GPA (out of 5)",max:5,hint:"e.g. 4.50"},{n:"CGPA (out of 4)",max:4,hint:"e.g. 3.25"},{n:"Percentage (%)",max:100,hint:"e.g. 72"}];
+/* typed value -> [matching band 0-3, profile category 0=Poor 1=Moderate 2=Good 3=Excellent]. Same cut-offs as the earlier option lists. */
+function gpaMap(sc,v){
+  v=Math.round(v*100)/100;
+  if(sc==0)return v<3.5?[0,0]:v<4.01?[1,1]:v<4.5?[2,2]:[3,3];
+  if(sc==1)return v<2.5?[0,0]:v<2.71?[1,0]:v<3?[1,1]:v<3.5?[2,2]:[3,3];
+  return v<60?[0,0]:v<70?[1,1]:v<80?[2,2]:[3,3];
+}
 function gpaScreen(){
-  var sc=A.scale||0,s=GS[sc];
-  var h='<div class="bar"><i style="width:'+Math.round(step/(Q.length+1)*100)+'%"></i></div><p class="q">What was your latest academic result?</p><div class="tabs">';
+  var sc=A.scale||0,s=GS[sc],val=(A.gpaVal&&A.scale==sc)?A.gpaVal:"";
+  var h=hdr()+'<p class="q">What was your latest academic result?</p><div class="tabs">';
   GS.forEach(function(g,i){h+='<button class="tabb'+(i==sc?' on':'')+'" data-s="'+i+'" style="font-size:13.5px">'+g.n+'</button>'});
-  h+='</div><div class="opts">';
-  s.o.forEach(function(o,i){h+='<button class="opt'+(A.gpaTxt===s.n+": "+o[0]?' sel':'')+'" data-i="'+i+'">'+esc(o[0])+'</button>'});
-  h+='</div><p class="note">Choose the grading system on your certificate. We convert it to a common scale to match universities.</p>'+(step?'<button class="back" id="bk">\u2190 Back</button>':'');
+  h+='</div><label for="gv">Enter your '+s.n+'</label><input id="gv" type="text" inputmode="decimal" autocomplete="off" placeholder="'+s.hint+'" value="'+esc(val)+'"><div class="err" id="er"></div><button class="btn" id="nx">Continue</button><p class="note">Choose the grading system on your certificate, then type your result. We convert it to a common scale to match universities.</p>'+(step?'<button class="back" id="bk">\u2190 Back</button>':'');
   card.innerHTML=h;
-  card.querySelectorAll(".tabb").forEach(function(b){b.onclick=function(){A.scale=+b.dataset.s;gpaScreen()}});
-  card.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){var o=s.o[+b.dataset.i];A.gpa=o[1];A.cat=o[2];A.gpaTxt=s.n+": "+o[0];step++;show()}});
+  card.querySelectorAll(".tabb").forEach(function(b){b.onclick=function(){A.scale=+b.dataset.s;A.gpaVal="";gpaScreen()}});
+  var inp=document.getElementById("gv"),er=document.getElementById("er");
+  function go(){
+    var raw=inp.value.trim().replace(",","."),v;
+    if(!raw){er.textContent="Please enter your result.";return}
+    if(!/^\d+(\.\d+)?$/.test(raw)){er.textContent="Please enter a number, for example "+s.hint.replace("e.g. ","")+".";return}
+    v=parseFloat(raw);
+    if(v<=0||v>s.max){er.textContent="Your "+s.n+" must be more than 0 and not more than "+s.max+".";return}
+    var m=gpaMap(sc,v);
+    A.scale=sc;A.gpaVal=raw;A.gpa=m[0];A.cat=m[1];
+    A.gpaTxt=sc==2?"Percentage: "+fmtN(v)+"%":s.n+": "+fmtN(v);
+    step++;show();
+  }
+  document.getElementById("nx").onclick=go;
+  inp.onkeydown=function(e){if(e.key=="Enter")go()};
   var bk=document.getElementById("bk");if(bk)bk.onclick=function(){step--;show()};
+}
+function budgetScreen(){
+  var h=hdr()+'<p class="q">'+Q[6].q+'</p><p class="note" style="margin:-6px 0 14px">Enter your total budget for one year in lakh BDT (1 lakh = 100,000 BDT). Include tuition fee and living cost.</p><label for="bv">Yearly budget</label><div class="ig"><input id="bv" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 20" value="'+esc(A.budgetRaw||"")+'"><span>lakh BDT</span></div><div class="meta" id="bh" style="margin-top:6px;min-height:20px"></div><div class="err" id="er"></div><button class="btn" id="nx">Continue</button><br><button class="back" id="bk">\u2190 Back</button>';
+  card.innerHTML=h;
+  var inp=document.getElementById("bv"),er=document.getElementById("er"),bh=document.getElementById("bh");
+  function hint(){var r=inp.value.trim().replace(",","."),v=parseFloat(r);bh.textContent=(/^\d+(\.\d+)?$/.test(r)&&v>0&&v<=500)?"\u2248 "+Math.round(v*1e5).toLocaleString("en-IN")+" BDT per year":""}
+  inp.oninput=hint;hint();
+  function go(){
+    var raw=inp.value.trim().replace(",","."),v;
+    if(!raw){er.textContent="Please enter your yearly budget.";return}
+    if(!/^\d+(\.\d+)?$/.test(raw)){er.textContent="Please enter a number, for example 20 for 20 lakh BDT.";return}
+    v=parseFloat(raw);
+    if(v>500){er.textContent="Please enter the amount in lakh BDT (for example 20 for 20 lakh = 2,000,000 BDT).";return}
+    if(v<1){er.textContent="Please enter at least 1 lakh BDT.";return}
+    A.budget=v;A.budgetRaw=raw;step++;show();
+  }
+  document.getElementById("nx").onclick=go;
+  inp.onkeydown=function(e){if(e.key=="Enter")go()};
+  document.getElementById("bk").onclick=function(){step--;show()};
 }
 var ET=[{n:"IELTS",o:[["Below 5.5",1],["5.5",2],["6.0",3],["6.5",4],["7.0 or above",5]]},{n:"Duolingo",o:[["Below 95",1],["95 \u2013 104",2],["105 \u2013 114",3],["115 \u2013 124",4],["125 or above",5]]},{n:"TOEFL iBT",o:[["Below 46",1],["46 \u2013 59",2],["60 \u2013 78",3],["79 \u2013 93",4],["94 or above",5]]},{n:"PTE Academic",o:[["Below 42",1],["42 \u2013 49",2],["50 \u2013 57",3],["58 \u2013 64",4],["65 or above",5]]}];
 /* option = [label, IELTS-equivalent index: 1 <5.5, 2 =5.5, 3 =6.0, 4 =6.5, 5 7+] */
 function pt(t){t=(t||"").toLowerCase();return t=="public"?'<span class="pt pub">Public</span>':t=="private"?'<span class="pt pri">Private</span>':""}
 var PRI=["Illinois Institute of Technology","American College of Greece (Deree)","Turiba University","BA School of Business and Finance","RISEBA University","Estonian Business School"];
-function legend(){return '<p class="note" style="margin:6px 0 10px"><b>Good fit:</b> meets the minimum CGPA and English score. <b>Reach:</b> one step below the minimum CGPA or English score, so still possible with a strong application.</p>'}
+function legend(){return '<p class="note" style="margin:6px 0 10px"><b>Good fit:</b> meets the minimum CGPA and English score. <b>Reach:</b> one step below the minimum CGPA or English score, so still possible with a strong application.<br><b>Select:</b> tap any university or program card to select it (it turns green). Your choices are sent to our counsellor with your profile.</p>'}
 function bandScreen(){
   var BD=["Below 5.0","5.0","5.5","6.0","6.5 or above","Not sure"];
-  var h='<div class="bar"><i style="width:'+Math.round(step/(Q.length+1)*100)+'%"></i></div><p class="q">What is your lowest IELTS band? (No band less than)</p><p class="note" style="margin:-6px 0 14px">Your lowest score among Listening, Reading, Writing and Speaking. Many universities also set a minimum for each band.</p><div class="opts">';
+  var h=''+hdr()+'<p class="q">What is your lowest IELTS band? (No band less than)</p><p class="note" style="margin:-6px 0 14px">Your lowest score among Listening, Reading, Writing and Speaking. Many universities also set a minimum for each band.</p><div class="opts">';
   BD.forEach(function(x,i){h+='<button class="opt" data-i="'+i+'">'+x+'</button>'});
   h+='</div><button class="back" id="bk">\u2190 Back</button>';
   card.innerHTML=h;
@@ -230,7 +309,7 @@ function bandScreen(){
   document.getElementById("bk").onclick=function(){A.etest=0;ieltsScreen()};
 }
 function ieltsScreen(){
-  var h='<div class="bar"><i style="width:'+Math.round(step/(Q.length+1)*100)+'%"></i></div>',t=A.etest;
+  var h=''+hdr()+'',t=A.etest;
   if(t==null){
     h+='<p class="q">Do you have an English test result?</p><p class="note" style="margin:-6px 0 14px">No test yet? No problem. Some universities accept only an English Medium Letter (MOI).</p><div class="opts g2">';
     ET.forEach(function(e,i){h+='<button class="opt" data-i="'+i+'">'+e.n+'</button>'});
@@ -252,9 +331,11 @@ function show(){
   var q=Q[step];
   if(q.k=="gpa")return gpaScreen();
   if(q.k=="ielts"){A.etest=null;return ieltsScreen()}
-  var h='<div class="bar"><i style="width:'+Math.round(step/(Q.length+1)*100)+'%"></i></div><p class="q">'+q.q+'</p><div class="opts">';
-  q.o.forEach(function(t,i){h+='<button class="opt'+(A[q.k]===i?' sel':'')+'" data-i="'+i+'">'+esc(t)+'</button>'});
-  h+='</div>'+(step?'<button class="back" id="bk">← Back</button>':'');
+  if(q.k=="budget")return budgetScreen();
+  var ct=q.k=="country",ord=ct?ORDER:q.o.map(function(_,i){return i});
+  var h=hdr()+'<p class="q">'+q.q+'</p><div class="opts'+(ct?' g2 ctry':'')+'">';
+  ord.forEach(function(i,n){h+='<button class="opt'+(A[q.k]===i?' sel':'')+'" data-i="'+i+'">'+(ct&&i!=10?'<span class="rk">'+(n+1)+'</span>':'')+esc(q.o[i])+'</button>'});
+  h+='</div>'+(step?'<button class="back" id="bk">\u2190 Back</button>':'');
   card.innerHTML=h;
   card.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){A[q.k]=+b.dataset.i;step++;show()}});
   var bk=document.getElementById("bk");if(bk)bk.onclick=function(){step--;show()};
@@ -273,6 +354,7 @@ function form(){
   };
 }
 function result(){
+  SEL={u:{},p:{}};
   var c=A.country,pts=0,tips=[],good=[];
   A.ref=A.ref||"ISB-"+new Date().toISOString().slice(2,10).replace(/-/g,"")+"-"+Math.floor(1000+Math.random()*9000);
   var dstr=new Date().toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
@@ -288,21 +370,38 @@ function result(){
   if(ls<15)tips.push("Your chosen study level does not directly follow your last qualification. Review the right entry route.");
   var tier=["Poor profile","Moderate profile","Good profile","Excellent profile"][A.cat],gr=A.gpaTxt,cc=["t2","t1","t3","t0"][A.cat];
   var cn=Q[0].o[c];
-  var h='<div class="prhead"><b>Admission Profile Report</b><span>'+dstr+' \u00b7 Ref '+A.ref+'</span></div><div class="score"><div><span class="tag '+cc+'" style="font-size:17px;padding:6px 18px">'+tier+'</span><div class="meta" style="margin-top:4px">'+gr+'</div><p style="margin:8px 0 0"><b>'+esc(A.name)+'</b>, your indicative match for <b>'+esc(cn)+'</b>.</p><p class="meta" style="margin:6px 0 0">English: '+esc(A.etxt)+'</p><p class="meta" style="margin:2px 0 0">Budget: '+esc(Q[6].o[A.budget])+' per year</p>'+(A.band=="Below 5.0"||A.band=="5.0"?'<p class="note" style="margin:6px 0 0">Many universities require no band below 5.5, so raising your lowest band can open more options.</p>':'')+'</div></div>';
+  var h='<div class="prhead"><b>Admission Profile Report</b><span>'+dstr+' \u00b7 Ref '+A.ref+'</span></div><div class="score"><div><span class="tag '+cc+'" style="font-size:17px;padding:6px 18px">'+tier+'</span><div class="meta" style="margin-top:4px">'+gr+'</div><p style="margin:8px 0 0"><b>'+esc(A.name)+'</b>, your indicative match for <b>'+esc(cn)+'</b>.</p><p class="meta" style="margin:6px 0 0">English: '+esc(A.etxt)+'</p><p class="meta" style="margin:2px 0 0">Budget: '+esc(BT())+' per year</p>'+(A.band=="Below 5.0"||A.band=="5.0"?'<p class="note" style="margin:6px 0 0">Many universities require no band below 5.5, so raising your lowest band can open more options.</p>':'')+'</div></div>';
   
   
-  var rows=[["Name",A.name],["Phone",A.phone],["Country",cn],["Study level",Q[1].o[A.level]],["Last education",Q[2].o[A.edu]],["Academic result",A.gpaTxt],["English test",A.etxt],["Study gap",Q[5].o[A.gap]],["Budget (per year)",Q[6].o[A.budget]],["Profile",tier],["Date",dstr],["Reference",A.ref]];
+  var rows=[["Name",A.name],["Phone",A.phone],["Country",cn],["Study level",Q[1].o[A.level]],["Last education",Q[2].o[A.edu]],["Academic result",A.gpaTxt],["English test",A.etxt],["Study gap",Q[5].o[A.gap]],["Budget (per year)",BT()],["Profile",tier],["Date",dstr],["Reference",A.ref]];
   h+='<h3 style="margin:16px 0 6px">Your profile</h3><div class="sum">'+rows.map(function(r){return"<div><b>"+r[0]+"</b>"+esc(r[1])+"</div>"}).join("")+"</div>";
   h+=unis();
-  var msg="Hello ISB Immigration & Solution BD, I completed the profile check.\nName: "+A.name+"\nPhone: "+A.phone+"\nCountry: "+cn+"\nLevel: "+Q[1].o[A.level]+"\nLast education: "+Q[2].o[A.edu]+"\nAcademic result: "+A.gpaTxt+"\nEnglish test: "+A.etxt+"\nGap: "+Q[5].o[A.gap]+"\nBudget: "+Q[6].o[A.budget]+"\nRef: "+A.ref+"\nProfile: "+tier+" ("+gr+")";
-  h+='<div class="row noprint"><a class="btn" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(msg)+'">Get free counselling on WhatsApp</a><a class="btn sec" href="tel:+8801600274283">Call +880 1600-274283</a></div>';
+  var ln=["*NEW STUDENT PROFILE - ISB Immigration & Solution BD*","Ref: "+A.ref+" | Date: "+dstr,"",
+    "*STUDENT DETAILS*","Name: "+A.name,"Phone: "+A.phone,"",
+    "*STUDY PLAN*","Preferred country: "+cn,"Study level: "+Q[1].o[A.level],"",
+    "*ACADEMIC BACKGROUND*","Last education: "+Q[2].o[A.edu],"Result: "+A.gpaTxt,"Study gap: "+Q[5].o[A.gap],"",
+    "*ENGLISH PROFICIENCY*",A.etxt,"",
+    "*BUDGET*",BT()+" per year (tuition + living)"];
+  var mk=function(){var l=ln.slice(),su=Object.keys(SEL.u),sp=Object.keys(SEL.p);
+    if(su.length){l.push("","*SELECTED UNIVERSITIES ("+su.length+")*");su.forEach(function(x,i){l.push((i+1)+". "+x)})}
+    if(sp.length){l.push("","*SELECTED PROGRAMS ("+sp.length+")*");sp.forEach(function(x,i){l.push((i+1)+". "+x)})}
+    l.push("","Hello, I completed the free profile check on your website. Please contact me to discuss my best options. Thank you.");return l.join("\n")};
+  var msg=mk();
+  var wai='<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>';
+  h+='<div class="cta noprint"><p class="ctat">Next step</p><p class="ctas">Send your profile to our counsellor on WhatsApp. We will review it and contact you with the best options.</p><p class="selc" id="selc"></p><a class="btn wa" id="wab" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(msg)+'">'+wai+'Send my profile to a counsellor</a><div class="row2" style="grid-template-columns:1fr"><a class="btn sec" href="tel:+8801600274283">Call +880 1600-274283</a></div></div>';
   h+='<div class="row noprint">';
   if(LINK[c])h+='<a class="btn sec" target="_blank" rel="noopener" href="https://ieltsschoolbd.com/'+LINK[c]+'">Study in '+esc(cn)+' guide</a>';
-  if(A.ielts<4)h+='<a class="btn sec" target="_blank" rel="noopener" href="https://ieltsschoolbd.com/online-ielts-courses/">IELTS courses</a>';
   h+='<button class="btn sec" id="pr1">\ud83d\udda8 Print profile</button><button class="btn sec" id="pr2">\ud83d\udda8 Print full report</button><button class="btn sec" id="rs">Retake</button></div>';
   h+='<p class="note">This is an indicative estimate based on general admission patterns, not an offer or guarantee of admission or a visa. Requirements vary by university and program and change over time. Your details are not stored on this page; they are shared only if you send them to us on WhatsApp.</p>';
   card.innerHTML=h;
   card.querySelectorAll(".tabb").forEach(function(b){b.onclick=function(){card.querySelectorAll(".tabb").forEach(function(x){x.classList.toggle("on",x===b)});["p0","p1","p2"].forEach(function(id,i){var e=document.getElementById(id);if(e)e.classList.toggle("hide",b.dataset.t!=i)})}});
+  var cbs=card.querySelectorAll(".sl"),sc=document.getElementById("selc");
+  function sync(){var a=Object.keys(SEL.u).length,b=Object.keys(SEL.p).length,t=[];
+    if(a)t.push(a+(a==1?" university":" universities"));if(b)t.push(b+(b==1?" program":" programs"));
+    sc.textContent=t.length?"Selected: "+t.join(" and ")+" (included in your message)":"Tap universities or programs above to select them (optional).";
+    document.getElementById("wab").href="https://wa.me/"+WA+"?text="+encodeURIComponent(mk())}
+  function tog(el){var m=SEL[el.dataset.t],on=!m[el.dataset.n];if(on)m[el.dataset.n]=1;else delete m[el.dataset.n];el.classList.toggle("on",on);el.setAttribute("aria-checked",on?"true":"false");sync()}
+  if(cbs.length){cbs.forEach(function(el){el.onclick=function(e){if(e.target.closest&&e.target.closest("a"))return;tog(el)};el.onkeydown=function(e){if(e.key==" "||e.key=="Enter"){e.preventDefault();tog(el)}}});sync()}else sc.style.display="none";
   document.getElementById("rs").onclick=function(){A={};step=0;show()};
   document.getElementById("pr1").onclick=function(){document.body.dataset.pr="short";window.print()};
   document.getElementById("pr2").onclick=function(){document.body.dataset.pr="full";window.print()};
