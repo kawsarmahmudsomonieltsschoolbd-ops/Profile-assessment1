@@ -607,6 +607,25 @@ body[data-pr] #officialPrintSheet.rp{font-family:"Segoe UI",Arial,Helvetica,sans
 </footer>
 <script>
 var WA="8801600274283";
+/* ===== LEAD TRACKING (Google Sheet) =====
+   Paste your Google Apps Script Web App URL below (see Code.gs setup steps). */
+var LEAD_URL="https://script.google.com/macros/s/AKfycbzKws6AONFYi-I-PCIAhp_Sqt9bQMksVN5HK3qvnt_rj_0vzF5QH7UEblN6u7_6CXbJ/exec";
+function sendLead(event){
+  try{
+    if(!LEAD_URL||LEAD_URL.indexOf("script.google.com")<0||typeof A==="undefined"||!A.ref)return;
+    var tiers=["Poor profile","Moderate profile","Good profile","Excellent profile"];
+    var cn=(A.countries&&A.countries.length?A.countries:[A.country]).map(function(i){return Q[0].o[i]}).join(", ");
+    var su=(typeof SEL!=="undefined"&&SEL.u)?Object.keys(SEL.u):[],sp=(typeof SEL!=="undefined"&&SEL.p)?Object.keys(SEL.p):[];
+    var data={event:event,ref:A.ref,name:A.name,phone:A.phone,countries:cn,level:Q[1].o[A.level],
+      education:Q[2].o[A.edu],result:A.gpaTxt,english:A.etxt,gap:Q[5].o[A.gap],budget:BT(),
+      profile:tiers[A.cat]||"",universities:su.join(" | "),programs:sp.join(" | "),
+      page:location.href,device:navigator.userAgent};
+    var body=JSON.stringify(data);
+    fetch(LEAD_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:body}).catch(function(){
+      try{navigator.sendBeacon&&navigator.sendBeacon(LEAD_URL,body)}catch(e){}
+    });
+  }catch(e){}
+}
 /* display order of countries (indexes into Q[0].o) */
 var ORDER=[5,6,9,8,7,4,3,1,11,10];
 var Q=[
@@ -955,6 +974,7 @@ function result(){
   var countryIds=(A.countries&&A.countries.length?A.countries:[c]);
   var countryNames=countryIds.map(function(i){return Q[0].o[i]});
   var cn=countryNames.join(", ");
+  if(!A.leadSent){A.leadSent=1;setTimeout(function(){sendLead("new")},0)}
   var h='<div class="prhead"><b>Admission Profile Report</b><span>'+dstr+' \u00b7 Ref '+A.ref+'</span></div><div class="score"><div><span class="tag '+cc+'" style="font-size:17px;padding:6px 18px">'+tier+'</span><div class="meta" style="margin-top:4px">'+gr+'</div><p style="margin:8px 0 0"><b>'+esc(A.name)+'</b>, your indicative match for <b>'+esc(cn)+'</b>.</p><p class="meta" style="margin:6px 0 0">English: '+esc(A.etxt)+'</p><p class="meta" style="margin:2px 0 0">Budget: '+esc(BT())+' per year</p>'+(A.band=="Below 5.0"||A.band=="5.0"?'<p class="note" style="margin:6px 0 0">Many universities require no band below 5.5, so raising your lowest band can open more options.</p>':'')+'</div></div>';
   
   
@@ -1012,6 +1032,7 @@ function result(){
   function tog(el){var m=SEL[el.dataset.t],on=!m[el.dataset.n];if(on)m[el.dataset.n]=1;else delete m[el.dataset.n];el.classList.toggle("on",on);el.setAttribute("aria-checked",on?"true":"false");sync()}
   if(cbs.length){cbs.forEach(function(el){el.onclick=function(e){if(e.target.closest&&e.target.closest("a"))return;tog(el)};el.onkeydown=function(e){if(e.key==" "||e.key=="Enter"){e.preventDefault();tog(el)}}});sync()}else sc.style.display="none";
   document.getElementById("rs").onclick=function(){A={};step=0;show()};
+  document.getElementById("wab").addEventListener("click",function(){sendLead("whatsapp")});
   function printReport(mode){
     var old=document.getElementById("officialPrintSheet");if(old)old.remove();
     var countries=(A.countries&&A.countries.length?A.countries:[A.country]).map(function(i){return Q[0].o[i]});
