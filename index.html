@@ -610,6 +610,17 @@ var WA="8801600274283";
 /* ===== LEAD TRACKING (Google Sheet) =====
    Paste your Google Apps Script Web App URL below (see Code.gs setup steps). */
 var LEAD_URL="https://script.google.com/macros/s/AKfycbxGmzme8vGZXLRgAapXiQpfCGm5Wf9Jn8jwl1-aHg6E-VbW8R61MKWWQkMAl1bLSJSx/exec";
+var _lt=null;
+function queueLead(){
+  try{
+    var k=(typeof SEL!=="undefined")?Object.keys(SEL.u).join("|")+"##"+Object.keys(SEL.p).join("|"):"";
+    if(k==="##")k="";
+    if(k===(A.selKey||""))return;
+    A.selKey=k;clearTimeout(_lt);
+    _lt=setTimeout(function(){_lt=null;sendLead("update")},1500);
+  }catch(e){}
+}
+document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden"&&_lt){clearTimeout(_lt);_lt=null;sendLead("update")}});
 function sendLead(event){
   try{
     if(!LEAD_URL||LEAD_URL.indexOf("script.google.com")<0||typeof A==="undefined"||!A.ref)return;
@@ -1028,7 +1039,7 @@ function result(){
   function sync(){var a=Object.keys(SEL.u).length,b=Object.keys(SEL.p).length,t=[];
     if(a)t.push(a+(a==1?" university":" universities"));if(b)t.push(b+(b==1?" program":" programs"));
     sc.textContent=t.length?"Selected: "+t.join(" and ")+" (included in your message)":"Tap universities or programs above to select them (optional).";
-    document.getElementById("wab").href="https://wa.me/"+WA+"?text="+encodeURIComponent(mk())}
+    document.getElementById("wab").href="https://wa.me/"+WA+"?text="+encodeURIComponent(mk());queueLead()}
   function tog(el){var m=SEL[el.dataset.t],on=!m[el.dataset.n];if(on)m[el.dataset.n]=1;else delete m[el.dataset.n];el.classList.toggle("on",on);el.setAttribute("aria-checked",on?"true":"false");sync()}
   if(cbs.length){cbs.forEach(function(el){el.onclick=function(e){if(e.target.closest&&e.target.closest("a"))return;tog(el)};el.onkeydown=function(e){if(e.key==" "||e.key=="Enter"){e.preventDefault();tog(el)}}});sync()}else sc.style.display="none";
   document.getElementById("rs").onclick=function(){A={};step=0;show()};
